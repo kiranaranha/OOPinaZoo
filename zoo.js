@@ -1,18 +1,29 @@
-
-function sleep(name){
-    console.log(name + " sleeps for 8 hours");
-}
-
 function run(){
-    sleep("Tigger");
-    eat("Tigger", "meat");
-    eat("Tigger", "bacon");
+    let tigger = new Tiger("Tigger");
+    tigger.eat("meat");
+    tigger.eat("kibble");
+
 }
 
-var favoriteFood="bacon";
+class Tiger {
+    constructor(name) {
+        this.name = name;
+        this.favFood = "meat";
+    }
 
-function eat(name,food){
-    food == this.favoriteFood ? console.log("YUM!!! " + name + " wants more " + food) : console.log(name + " eats " + food);
+    sleep(name) {
+        console.log(name + " sleeps for 8 hours");
+
+    }
+
+    eat(food) {
+        food == this.favFood ? console.log("YUM!!! " + this.name + " wants more " + food) : console.log(this.name + " eats " + food);
+
+    }
+
 }
 
 
+class Bear {
+
+}
