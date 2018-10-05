@@ -84,11 +84,12 @@ class Bee extends Animal {
         if(food == this.favFood){
             console.log(this.name + " eats " + food);
             console.log("Yum!! "+ this.name + " wants more " + food);
-            let sleep = this.name + " sleeps for 8 hours";
-            console.log(sleep);
+            let sleep = 0;
+             sleep == 1 ? console.log(this.name + " will never sleep"): this.sleep();
+
         }else{
             console.log("Yuck!! "+ this.name + " will not eat " + food);
-            const sleep = this.name + " will never sleep";
+            const sleep = 1;
         }
     }
 }
