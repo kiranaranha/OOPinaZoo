@@ -14,14 +14,22 @@ function run(){
     gemma.eat("leaves");
 
     let stinger = new Bee("Stinger");
-        stinger.eat("ice cream");
-        stinger.eat("pollen");
+    stinger.eat("ice cream");
+    stinger.eat("pollen");
+
+    let zoebot = new Zookeper("Zoebot");
+    zoebot.feedAnimals([tigger, pooh, rarity, gemma, stinger], "pizza");
+
+    console.log(Animal.getPopulation());
     }
+
+var animalPopulation = 0;
 
 class Animal {
     constructor(name, favFood) {
         this.name = name;
         this.favFood = favFood;
+        animalPopulation ++;
     }
 
     sleep() {
@@ -32,6 +40,9 @@ class Animal {
     eat(food) {
         console.log(this.name + " eats " + food);
         food == this.favFood ? console.log("YUM!!! " + this.name + " wants more " + food) : this.sleep();
+    }
+    static getPopulation(){
+        return animalPopulation;
     }
 }
 
@@ -79,17 +90,32 @@ class Bee extends Animal {
     constructor(name) {
         super(name, "pollen");
     }
+    sleep(){
+        console.log(this.name + " never sleeps");
+    }
 
     eat(food){
         if(food == this.favFood){
             console.log(this.name + " eats " + food);
-            console.log("Yum!! "+ this.name + " wants more " + food);
-            let sleep = 0;
-             sleep == 1 ? console.log(this.name + " will never sleep"): this.sleep();
+        }
+        food == this.favFood ? console.log("YUM!!! " + this.name + " wants more " + food) : console.log("YUCK!!! " + this.name + " will not eat " + food);
 
-        }else{
-            console.log("Yuck!! "+ this.name + " will not eat " + food);
-            const sleep = 1;
+        if(food == this.favFood){
+            this.sleep();
         }
     }
 }
+
+class Zookeper {
+    constructor(name) {
+        this.name = name;
+    }
+    feedAnimals(animals, food) {
+        console.log(this.name + " is feeding " + food + " to " + animals.length + " animals");
+
+    for (let i = 0; i < animals.length; i++){
+        animals[i].eat(food);
+    }
+    }
+}
+
