@@ -111,7 +111,7 @@ class Zookeper {
         this.name = name;
     }
     feedAnimals(animals, food) {
-        console.log(this.name + " is feeding " + food + " to " + animals.length + " animals");
+        console.log(this.name + " is feeding " + food + " to " + animals.length + " of " + Animal.getPopulation() + " total animals");
 
     for (let i = 0; i < animals.length; i++){
         animals[i].eat(food);
